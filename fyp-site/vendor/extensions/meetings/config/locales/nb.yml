@@ -1,0 +1,30 @@
+nb:
+  refinery:
+    plugins:
+      meetings:
+        title: Meetings
+    meetings:
+      admin:
+        meetings:
+          actions:
+            create_new: Lag en ny Meeting
+            reorder: Endre rekkefølgen på Meetings
+            reorder_done: Ferdig å endre rekkefølgen Meetings
+          records:
+            title: Meetings
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Meetings enda. Klikk på "Lag en ny Meeting" for å legge til din første meeting.
+          meeting:
+            view_live_html: Vis hvordan denne meeting ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne meeting
+            delete: Fjern denne meeting permanent
+      meetings:
+        show:
+          other: Andre Meetings
+  activerecord:
+    attributes:
+      'refinery/meetings/meeting':
+        meeting_title: Meeting Title
+        date: Date
+        location: Location
+        agenda: Agenda

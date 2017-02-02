@@ -1,0 +1,11 @@
+<% content_for :body do %>
+  <ul id="meetings">
+    <% @meetings.each do |meeting| %>
+      <li>
+        <%= link_to meeting.meeting_title, refinery.meetings_meeting_path(meeting) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render '/refinery/content_page' %>

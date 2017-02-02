@@ -1,0 +1,31 @@
+es:
+  refinery:
+    plugins:
+      meetings:
+        title: Meetings
+#        article: masculino/femenino
+    meetings:
+      admin:
+        meetings:
+          actions:
+            create_new: Crear nuevo meeting
+            reorder: Reordenar meetings
+            reorder_done: Reordenación de meetings completada
+          records:
+            title: Meetings
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay meetings todavía. Pulsa en "Crear nuevo Meeting" para crear tu primer meeting.
+          meeting:
+            view_live_html: Ver este meeting como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este meeting
+            delete: Borrar este meeting para siempre
+      meetings:
+        show:
+          other: Otros meetings
+  activerecord:
+    attributes:
+      'refinery/meetings/meeting':
+        meeting_title: Meeting Title
+        date: Date
+        location: Location
+        agenda: Agenda

@@ -1,0 +1,30 @@
+tr:
+  refinery:
+    plugins:
+      meetings:
+        title: Meetings
+    meetings:
+      admin:
+        meetings:
+          actions:
+            create_new: Yeni Ekle Meeting
+            reorder: Tekrar sirala Meetings
+            reorder_done: Tekrar siralama tamamlandiMeetings
+          records:
+            title: Meetings
+            sorry_no_results: Uzgunum! Herhangi bir sonuc bulunamadi.
+            no_items_yet: Herhangi bir Meetings yok henuz.  Tikla "Yeni Ekle Meeting" eklemek senin ilk meeting.
+          meeting:
+            view_live_html: Bunu canlu meeting goruntule <br/><em>(yeni bir pencerede acar)</em>
+            edit: Bunu Duzenle meeting
+            delete: Bunu Sil meeting sonsuza dek
+      meetings:
+        show:
+          other: Diger Meetings
+  activerecord:
+    attributes:
+      'refinery/meetings/meeting':
+        meeting_title: Meeting Title
+        date: Date
+        location: Location
+        agenda: Agenda

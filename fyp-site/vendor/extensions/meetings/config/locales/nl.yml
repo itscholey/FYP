@@ -1,0 +1,30 @@
+nl:
+  refinery:
+    plugins:
+      meetings:
+        title: Meetings
+    meetings:
+      admin:
+        meetings:
+          actions:
+            create_new: Nieuwe Meeting toevoegen
+            reorder: De volgorde van de Meetings wijzigen
+            reorder_done: Klaar met het wijzingen van de van de Meeting-volgorde
+          records:
+            title: Meetings
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Meetings. Druk op 'Nieuwe Meeting toevoegen' om de eerste toe te voegen.
+          meeting:
+            view_live_html: Deze meeting op de website bekijken <br/><em>(opent in een nieuw venster)</em>
+            edit: Bewerk deze meeting
+            delete: Deze meeting definitief verwijderen
+      meetings:
+        show:
+          other: Andere Meetings
+  activerecord:
+    attributes:
+      'refinery/meetings/meeting':
+        meeting_title: Meeting Title
+        date: Date
+        location: Location
+        agenda: Agenda
