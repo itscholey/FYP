@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'users/new'
-  root 'users#new'
+  resources :users
+  root 'users#index'
+
 
   # This line mounts Refinery's routes at the root of your application.
   # This means, any requests to the root URL of your application will go to Refinery::PagesController#home.
