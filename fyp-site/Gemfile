@@ -47,7 +47,6 @@ group :development do
   gem 'spring'
 end
 
-
 # Refinery CMS
 gem 'refinerycms', '~> 3.0'
 
