@@ -18,7 +18,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @assignment = Assignment.new
     if @user.save
       redirect_to @user
     else
@@ -26,10 +25,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated."
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
   private
     def user_params
       params.require(:user).permit(:username, :email, :name,
-                                    :password, :password_confirmation)
+                                    :password, :password_confirmation, role_ids: [])
     end
 
     def logged_in_user

@@ -1,8 +1,6 @@
 class UserPolicy < ApplicationPolicy
-  def new?
-  end
 
   def create?
-    user.admin? or user.teacher?
+    (user.admin? or user.roles?(teacher)) && user.logged_in?
   end
 end

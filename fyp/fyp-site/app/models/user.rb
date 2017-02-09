@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
   has_many :assignments
   has_many :roles, through: :assignments
 
-
   has_secure_password
 
   def role_symbols
@@ -15,4 +14,8 @@ class User < ActiveRecord::Base
       role.name.underscore.to_sym
     end
   end
+
+  def role?(role)
+  roles.any? { |r| r.name.underscore.to_sym == role }
+end
 end
