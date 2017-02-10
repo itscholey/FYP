@@ -3,4 +3,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   include SessionsHelper
+
+  def redirect_back_or_root
+    if request.env["HTTP_REFERER"].present?
+      redirect_to :back
+    else
+      redirect_to root_url
+    end
+  end
 end
