@@ -23,7 +23,9 @@
             <li><%= link_to "Home", root_url %></li>
             <% if logged_in? %>
               <li>Welcome, <%= User.find(session[:user_id]).name %></li>
-              <li><%= link_to "New", new_user_path %></li>
+              <% if current_user.role?(:admin) %>
+                <li><%= link_to "Users", users_path %></li>
+              <% end %>
               <li><%= link_to "Profile", current_user %></li>
               <li><%= link_to "Log Out", sessions_destroy_path, method: :delete %></li>
             <% else %>
@@ -38,7 +40,7 @@
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
-      
+
       <%= yield %>
     </div>
   </body>
