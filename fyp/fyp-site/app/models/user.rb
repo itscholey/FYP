@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
   has_many :assignments
   has_many :roles, through: :assignments
 
+  belongs_to :subject #as teacher
+
+  has_many :lessons #as student
+
   has_secure_password
 
   def role_symbols
