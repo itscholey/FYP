@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'lessons/index'
+
+  get 'lessons/new'
+
+  get 'lessons/edit'
+
+  get 'lessons/show'
+
   #get 'users/index'
 
   #get 'users/show'
@@ -21,6 +29,7 @@ Rails.application.routes.draw do
 
     resources :users
     resource :sessions, only: [:new, :create, :destroy]
+    resources :subjects
 
     root 'users#index'
 

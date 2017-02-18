@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates :username,  presence: true, length: { maximum: 10 }
+  validates :username,  presence: true, length: { maximum: 10 }, uniqueness: true
   validates :email,     presence: true, length: { maximum: 254 }
   validates :name,      presence: true, length: { maximum: 50 }
   validates :password,  presence: true, length: { minimum: 8 }
@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :roles, through: :assignments
 
   belongs_to :subject #as teacher
+  has_many :subjects
 
   has_many :lessons #as student
 
