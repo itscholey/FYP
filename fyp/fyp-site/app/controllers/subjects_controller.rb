@@ -14,7 +14,7 @@ class SubjectsController < ApplicationController
       if @subject.save
         render :show
       else
-        render :new
+        redirect_to new_subject_path
       end
     else
       flash[:danger] = "#{teacher.id} Not a teacher"

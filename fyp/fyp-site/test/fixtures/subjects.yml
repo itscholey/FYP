@@ -3,9 +3,9 @@
 one:
   name: MyString
   classGroup: MyString
-  user_id: 
+  teacher_id: 22
 
 two:
   name: MyString
   classGroup: MyString
-  user_id: 
+  teacher_id: 22
