@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
 
 
+
   get     '/login',    to: 'sessions#new'
   post    '/login',    to: 'sessions#create'
   delete  '/logout',   to: 'sessions#destroy'
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
   resource :sessions, only: [:new, :create, :destroy]
   resources :subjects
   resources :lessons
+  resources :enrolments
 
   root 'users#index'
 

@@ -2,8 +2,10 @@
 <h1> Users </h1>
 
 <% User.all.each do |u| %>
+
+
   <div class="user_class">
-    <h3><%= u.name %></h3>
+    <h3><%= link_to u.name, u %></h3>
     <ul>
       <li>Username: <%= u.username %>
       <% u.roles.each do |r| %>

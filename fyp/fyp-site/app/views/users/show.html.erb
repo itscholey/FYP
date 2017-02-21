@@ -6,3 +6,9 @@
     <li><%= r.name %></li>
   <% end %>
 </ul>
+<h2>Subjects:</h2>
+<ul>
+  <% @user.enrolments(@user).each do |e| %>
+  <li><%= Subject.find(e.subject_id).name %></li>
+<% end %>
+</ul>
