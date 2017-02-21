@@ -14,9 +14,9 @@ class User < ActiveRecord::Base
   has_many :roles, through: :assignments
 
   belongs_to :subject #as teacher
-  has_many :subjects
 
-  has_many :lessons #as student
+  has_many :enrolments #as a student
+  has_many :subjects, through: :enrolments
 
   has_secure_password
 
@@ -29,4 +29,13 @@ class User < ActiveRecord::Base
   def role?(role)
   roles.any? { |r| r.name.underscore.to_sym == role }
 end
+
+  def enrolled?(subject)
+    enrollments.any? { |e| e.name.underscore.to_sym == subject }
+  end
+
+  def enrolments(user)
+    return User.find_by_sql("
+          SELECT * FROM enrolments, users WHERE enrolments.student_id = users.id AND users.id = #{user.id} ")
+  end
 end
