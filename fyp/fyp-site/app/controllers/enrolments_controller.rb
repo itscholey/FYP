@@ -12,9 +12,6 @@ class EnrolmentsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def show
     @enrolment = Enrolment.find(params[:id])
   end

@@ -26,6 +26,16 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
   end
 
+  def update
+    @subject = Subject.find(params[:id])
+    if @subject.update_attributes(subject_params)
+      flash[:success] = "Subject updated."
+      redirect_to @subject
+    else
+      render 'edit'
+    end
+  end
+
   def show
     @subject = Subject.find(params[:id])
   end
