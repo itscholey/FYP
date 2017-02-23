@@ -1,27 +1,7 @@
+<% provide(:title, "Create Lesson") %>
+<% provide(:button_text, "Create Lesson") %>
+
 <h1>Lessons#new</h1>
 <p>Find me in app/views/lessons/new.html.erb</p>
 
-<%= form_for :lesson, url: lessons_path do |f| %>
-  <% if @lesson.errors.any? %>
-    <div id="error_description">
-      The form contains <%= pluralize(@lesson.errors.count, "error") %>.
-      <ul>
-        <% @lesson.errors.full_messages.each do |m| %>
-          <li><%= m %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :date %>
-  <%= f.datetime_select :date, order: [:day, :month, :year, :hour, :minute] %>
-
-  <%= f.label :subject_id %>
-  <%= f.text_field :subject_id %>
-
-  <br/>
-  <%= f.submit "Create Lesson" %>
-<% end %>
+<%= render "form" %>
