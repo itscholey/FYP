@@ -1,6 +1,8 @@
 class LessonsController < ApplicationController
   def index
-    @lessons = Lesson.all
+    #@lessons = Lesson.all
+    redirect_to subjects_path
+    # dont view all lessons
   end
 
   def new
