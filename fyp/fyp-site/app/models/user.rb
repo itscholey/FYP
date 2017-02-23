@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
   has_many :enrolments #as a student
   has_many :subjects, through: :enrolments
 
+  has_many :attendees
+  has_many :meetings, through: :attendees
+
   has_secure_password
 
   def role_symbols

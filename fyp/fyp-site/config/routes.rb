@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
 
+  get 'meetings/index'
+
+  get 'meetings/new'
+
+  get 'meetings/edit'
+
+  get 'meetings/show'
+
   #get 'users/index'
 
   #get 'users/show'

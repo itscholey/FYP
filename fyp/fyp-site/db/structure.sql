@@ -12,6 +12,10 @@ CREATE INDEX "index_lessons_on_subject_id" ON "lessons" ("subject_id");
 CREATE TABLE "enrolments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "subject_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
 CREATE INDEX "index_enrolments_on_student_id" ON "enrolments" ("student_id");
 CREATE INDEX "index_enrolments_on_subject_id" ON "enrolments" ("subject_id");
+CREATE TABLE "meetings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "subject" varchar, "date" datetime, "location" varchar, "agenda" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
+CREATE TABLE "attendees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "meeting_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
+CREATE INDEX "index_attendees_on_user_id" ON "attendees" ("user_id");
+CREATE INDEX "index_attendees_on_meeting_id" ON "attendees" ("meeting_id");
 INSERT INTO schema_migrations (version) VALUES ('20170209180608');
 
 INSERT INTO schema_migrations (version) VALUES ('20170209180645');
@@ -23,4 +27,8 @@ INSERT INTO schema_migrations (version) VALUES ('20170217181905');
 INSERT INTO schema_migrations (version) VALUES ('20170217181945');
 
 INSERT INTO schema_migrations (version) VALUES ('20170220102723');
+
+INSERT INTO schema_migrations (version) VALUES ('20170223083825');
+
+INSERT INTO schema_migrations (version) VALUES ('20170223084109');
 
