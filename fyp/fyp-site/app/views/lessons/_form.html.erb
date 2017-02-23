@@ -12,9 +12,11 @@
 
   <%= f.label :name %>
   <%= f.text_field :name %>
+  <br/>
 
   <%= f.label :date %>
   <%= f.datetime_select :date, order: [:day, :month, :year, :hour, :minute] %>
+  <br/>
 
   <%= f.label :subject_id %>
   <%= f.text_field :subject_id %>
