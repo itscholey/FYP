@@ -8,11 +8,12 @@ class MeetingsController < ApplicationController
   end
 
   def create
-    @meeting = Meeting.create(params[meeting_params])
+    @meeting = Meeting.new(meeting_params)
     if @meeting.save
       render :show
     else
       render :new
+    end
   end
 
   def edit
@@ -36,6 +37,6 @@ class MeetingsController < ApplicationController
   private
 
   def meeting_params
-    params.require(:meeting).permit(:subject, :date, :location, :agenda, attendee_ids: [])
+    params.require(:meeting).permit(:subject, :date, :location, :agenda, user_ids: [])
   end
 end

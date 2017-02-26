@@ -1,14 +1,5 @@
 Rails.application.routes.draw do
 
-
-  get 'meetings/index'
-
-  get 'meetings/new'
-
-  get 'meetings/edit'
-
-  get 'meetings/show'
-
   #get 'users/index'
 
   #get 'users/show'
@@ -36,6 +27,7 @@ Rails.application.routes.draw do
   resources :subjects
   resources :lessons
   resources :enrolments
+  resources :meetings
 
   root 'users#index'
 

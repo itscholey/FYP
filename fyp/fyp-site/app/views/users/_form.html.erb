@@ -26,6 +26,10 @@
       <% end %>
     <% end %>
   <% end %>
+
   <br/>
   <%= f.submit yield(:button_text) %>
 <% end %>
+
+<%= debug(params) %>
+<%= debug(@user.errors) %>
