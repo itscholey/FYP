@@ -3,20 +3,36 @@
 
 <h3>Conversation <%= @conversation.id %>
 
-<% Message.where(conversation_id: @conversation.id).each do |m| %>
-  <% if (Recipient.find(m.sender_id).user.id == current_user.id) %>
-    <div class="panel panel-success">
-  <% else %>
-    <div class="panel panel-info">
+<div class="messages">
+  <% Message.where(conversation_id: @conversation.id).each do |m| %>
+    <% if (Recipient.find(m.sender_id).user.id == current_user.id) %>
+      <div class="panel panel-success">
+    <% else %>
+      <div class="panel panel-info">
+    <% end %>
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= Recipient.find(m.sender_id).user.name %>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <%= m.body %>
+      </div>
+    </div>
+    <br/>
   <% end %>
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <%= Recipient.find(m.sender_id).user.name %>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <%= m.body %>
-    </div>
-  </div>
-  <br/>
-<% end %>
+</div>
+
+<div class="new_message">
+  <%= form_for Message.new, url: messages_path do |f| %>
+
+
+    <%= f.label :body %>
+    <%= f.text_field :body %>
+
+    <%= f.hidden_field(:Conversation_id, value: @conversation.id) %>
+    <% @sender = Recipient.find_by(user_id: current_user.id, conversation_id: @conversation.id) %>
+    <%= f.hidden_field(:sender_id, value: @sender.id) %>
+
+    <%= f.submit "Send Message" %>
+  <% end %>
