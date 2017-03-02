@@ -4,12 +4,14 @@
 <h3>Conversation <%= @conversation.id %>
 
 <% Message.where(conversation_id: @conversation.id).each do |m| %>
-  <div class="panel panel-info">
+  <% if (Recipient.find(m.sender_id).user.id == current_user.id) %>
+    <div class="panel panel-success">
+  <% else %>
+    <div class="panel panel-info">
+  <% end %>
     <div class="panel-heading">
       <h3 class="panel-title">
-        <% @conversation.recipients.each do |r| %>
-          <%= r.user.name %>
-        <% end %>
+        <%= Recipient.find(m.sender_id).user.name %>
       </h3>
     </div>
     <div class="panel-body">

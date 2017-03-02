@@ -17,11 +17,12 @@ CREATE TABLE "attendees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user
 CREATE INDEX "index_attendees_on_user_id" ON "attendees" ("user_id");
 CREATE INDEX "index_attendees_on_meeting_id" ON "attendees" ("meeting_id");
 CREATE TABLE "conversations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
-CREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "Conversation_id" integer, "body" varchar, "read" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
+CREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "Conversation_id" integer, "body" varchar, "read" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "sender_id" integer);
 CREATE INDEX "index_messages_on_Conversation_id" ON "messages" ("Conversation_id");
 CREATE TABLE "recipients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "Conversation_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
 CREATE INDEX "index_recipients_on_Conversation_id" ON "recipients" ("Conversation_id");
 CREATE INDEX "index_recipients_on_user_id" ON "recipients" ("user_id");
+CREATE INDEX "index_messages_on_sender_id" ON "messages" ("sender_id");
 INSERT INTO schema_migrations (version) VALUES ('20170209180608');
 
 INSERT INTO schema_migrations (version) VALUES ('20170209180645');
@@ -43,4 +44,6 @@ INSERT INTO schema_migrations (version) VALUES ('20170302125952');
 INSERT INTO schema_migrations (version) VALUES ('20170302130059');
 
 INSERT INTO schema_migrations (version) VALUES ('20170302130142');
+
+INSERT INTO schema_migrations (version) VALUES ('20170302154651');
 
