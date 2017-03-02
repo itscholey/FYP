@@ -1,0 +1,20 @@
+<h1>Messages#index</h1>
+<p>Find me in app/views/conversations/show.html.erb</p>
+
+<h3>Conversation <%= @conversation.id %>
+
+<% Message.where(conversation_id: @conversation.id).each do |m| %>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <% @conversation.recipients.each do |r| %>
+          <%= r.user.name %>
+        <% end %>
+      </h3>
+    </div>
+    <div class="panel-body">
+      <%= m.body %>
+    </div>
+  </div>
+  <br/>
+<% end %>

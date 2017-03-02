@@ -25,11 +25,13 @@ Rails.application.routes.draw do
 
 
   resources :users
-  resource :sessions, only: [:new, :create, :destroy]
+  resource  :sessions, only: [:new, :create, :destroy]
   resources :subjects
   resources :lessons
   resources :enrolments
   resources :meetings
+  resources :messages
+  resources :conversations
 
   root 'users#index'
 
