@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'messages/new'
+
   #get 'users/index'
 
   #get 'users/show'
