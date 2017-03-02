@@ -21,6 +21,9 @@ class User < ActiveRecord::Base
   has_many :attendees
   has_many :meetings, through: :attendees
 
+  has_many :recipients
+  has_many :conversations, through: :recipients
+
   has_secure_password
 
   def role_symbols
