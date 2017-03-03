@@ -1,0 +1,109 @@
+# Modify the code to update the DB schema diagram.
+# To reset the sample schema, replace everything with
+# two dots ('..' - without quotes).
+
+Assignments
+-
+id PK int
+User_Id int FK >- Users
+Role_Id int FK >- Roles
+-
+
+Attendees
+-
+id PK int
+User_Id int FK >- Users
+Meeting_Id int FK >- Meetings
+-
+
+Conversations
+-
+id PK int
+-
+
+Enrolments
+-
+id PK int
+Student_Id int FK >- Users
+Subject_Id int FK >- Subjects
+-
+
+Lessons
+-
+id PK int
+Name varchar
+Date Date
+Subject_Id int FK >- Subjects
+-
+
+Meetings
+-
+id PK int
+Subject varchar
+Date date
+Location varchar
+Agenda varchar
+-
+
+Messages
+-
+id PK int
+conversation_Id int FK >- Conversations
+Body varchar
+Read boolean
+-
+
+Recipients
+-
+id PK int
+conversation_Id int FK >- Conversations
+User_Id int FK >- Users
+-
+
+Roles
+-
+id PK int
+Name varchar
+-
+
+Subjects
+-
+Name varchar
+ClassGroup varchar
+Teacher_Id int FK >- Users
+-
+
+Users
+-
+id PK int
+Username varchar
+Email varchar
+Name varchar
+Password_Digest varchar
+-
+[settings]
+Zoom 80
+
+[layout]
+Assignments 33 23
+
+Attendees 619 523
+
+Conversations 333 683
+
+Enrolments 578 40
+
+Lessons 1021 71
+
+Meetings 614 670
+
+Messages 122 771
+
+Recipients 82 607
+
+
+Users 307 203
+
+Subjects 806 71
+
+Roles 224 23
