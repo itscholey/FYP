@@ -17,15 +17,15 @@ CREATE TABLE "attendees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user
 CREATE INDEX "index_attendees_on_user_id" ON "attendees" ("user_id");
 CREATE INDEX "index_attendees_on_meeting_id" ON "attendees" ("meeting_id");
 CREATE TABLE "conversations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
-CREATE TABLE "recipients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "Conversation_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
-CREATE INDEX "index_recipients_on_Conversation_id" ON "recipients" ("Conversation_id");
-CREATE INDEX "index_recipients_on_user_id" ON "recipients" ("user_id");
-CREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "Conversation_id" integer, "body" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "sender_id" integer);
-CREATE INDEX "index_messages_on_Conversation_id" ON "messages" ("Conversation_id");
-CREATE INDEX "index_messages_on_sender_id" ON "messages" ("sender_id");
 CREATE TABLE "inboxes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "recipient_id" integer, "message_id" integer, "read" boolean DEFAULT 'f', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
 CREATE INDEX "index_inboxes_on_recipient_id" ON "inboxes" ("recipient_id");
 CREATE INDEX "index_inboxes_on_message_id" ON "inboxes" ("message_id");
+CREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "sender_id" integer, "conversation_id" integer);
+CREATE INDEX "index_messages_on_sender_id" ON "messages" ("sender_id");
+CREATE TABLE "recipients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "conversation_id" integer);
+CREATE INDEX "index_recipients_on_user_id" ON "recipients" ("user_id");
+CREATE INDEX "index_messages_on_conversation_id" ON "messages" ("conversation_id");
+CREATE INDEX "index_recipients_on_conversation_id" ON "recipients" ("conversation_id");
 INSERT INTO schema_migrations (version) VALUES ('20170209180608');
 
 INSERT INTO schema_migrations (version) VALUES ('20170209180645');
@@ -53,4 +53,6 @@ INSERT INTO schema_migrations (version) VALUES ('20170302154651');
 INSERT INTO schema_migrations (version) VALUES ('20170303163726');
 
 INSERT INTO schema_migrations (version) VALUES ('20170303164015');
+
+INSERT INTO schema_migrations (version) VALUES ('20170303171440');
 
