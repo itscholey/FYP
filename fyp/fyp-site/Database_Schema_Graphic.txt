@@ -48,7 +48,7 @@ Agenda varchar
 Messages
 -
 id PK int
-Conversation_Id int FK >- Conversations
+conversation_Id int FK >- Conversations
 Body varchar
 Read boolean
 -
@@ -56,7 +56,7 @@ Read boolean
 Recipients
 -
 id PK int
-Conversation_Id int FK >- Conversations
+conversation_Id int FK >- Conversations
 User_Id int FK >- Users
 -
 

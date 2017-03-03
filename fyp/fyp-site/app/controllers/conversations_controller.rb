@@ -23,6 +23,6 @@ class ConversationsController < ApplicationController
   private
 
   def conversation_params
-    params.require(:conversation).permit()
+    params.require(:conversation).permit(user_ids: [])
   end
 end

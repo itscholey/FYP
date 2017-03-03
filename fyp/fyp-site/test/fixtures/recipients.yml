@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  Conversation_id: 
+  conversation_id: 
   user_id: 
 
 two:
-  Conversation_id: 
+  conversation_id: 
   user_id: 
