@@ -23,6 +23,9 @@ CREATE INDEX "index_recipients_on_user_id" ON "recipients" ("user_id");
 CREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "Conversation_id" integer, "body" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "sender_id" integer);
 CREATE INDEX "index_messages_on_Conversation_id" ON "messages" ("Conversation_id");
 CREATE INDEX "index_messages_on_sender_id" ON "messages" ("sender_id");
+CREATE TABLE "inboxes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "recipient_id" integer, "message_id" integer, "read" boolean DEFAULT 'f', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
+CREATE INDEX "index_inboxes_on_recipient_id" ON "inboxes" ("recipient_id");
+CREATE INDEX "index_inboxes_on_message_id" ON "inboxes" ("message_id");
 INSERT INTO schema_migrations (version) VALUES ('20170209180608');
 
 INSERT INTO schema_migrations (version) VALUES ('20170209180645');
@@ -48,4 +51,6 @@ INSERT INTO schema_migrations (version) VALUES ('20170302130142');
 INSERT INTO schema_migrations (version) VALUES ('20170302154651');
 
 INSERT INTO schema_migrations (version) VALUES ('20170303163726');
+
+INSERT INTO schema_migrations (version) VALUES ('20170303164015');
 
